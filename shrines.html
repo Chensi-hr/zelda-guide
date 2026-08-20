@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>神庙解谜 | 王国之泪 · 攻略站</title>
+<meta name="description" content="王国之泪全 152 座神庙数据库：地面 120 + 天空 32，按区域分组、可搜索、可勾选收集进度（本地保存）。">
+<link rel="stylesheet" href="styles.css">
+<meta name="keywords" content="王国之泪神庙,152神庙,120地面,32天空,解谜,区域分布,收集进度,攻略">
+<meta property="og:type" content="article">
+<meta property="og:title" content="神庙解谜：全 152 座数据库 | 王国之泪 · 攻略站">
+<meta property="og:description" content="地面 120 + 天空 32，可搜索可勾选进度。">
+</head>
+<body>
+<div id="site-header"></div>
+<article class="article">
+  <p class="crumb"><a href="index.html">首页</a> / 神庙解谜</p>
+  <h1>神庙解谜：全 152 座数据库</h1>
+  <div class="article-meta"><span>地面 120 · 天空 32</span><span>可搜索</span><span>进度本地保存</span></div>
+
+  <div class="progress-bar" id="progressBar">
+    <div class="progress-fill" id="progressFill"></div>
+    <span class="progress-text" id="progressText">已点亮 0 / 152 座神庙</span>
+  </div>
+
+  <div class="shrine-bar">
+    <input id="shrineSearch" type="search" placeholder="搜索神庙名 / 区域，如 空岛、Gutanbac、格鲁德、天空" aria-label="搜索神庙">
+    <button id="resetProgress" class="ghost-btn" type="button">清空进度</button>
+  </div>
+
+  <div id="shrineList"></div>
+
+  <div class="callout"><b>数据说明：</b>名录整理自公开攻略（IGN / game8 / Nintendo Life 等），共 152 座（地面 120 + 天空 32），地下无神庙（对应 120 个光明根 Lightroot）。个别神庙的区域划分以游戏内地图为准。勾选进度保存在你的浏览器本地，不会上传。<br><b>关于逐座解法 / 坐标：</b>每座神庙均可展开查看「类型 · 坐标 · 解法提示」；初始大空岛 4 座教学神庙与部分知名神庙已填真实内容，其余字段已搭好结构、标注「待补」——因本次外网抓取被拦截，精确逐座坐标 / 解法需接入可靠数据源后批量填充（你提供一份坐标 / 解法数据，我可一次灌入）。</div>
+
+  <div class="related">
+    <h3>相关推荐</h3>
+    <div class="grid guide-grid">
+      <a class="guide-card" href="beginner.html"><div class="guide-thumb thumb-a"><span class="guide-tag">新手</span></div><div class="guide-body"><h3>新手指南</h3><p>能力详解与开局。</p></div></a>
+      <a class="guide-card" href="map.html"><div class="guide-thumb thumb-d"><span class="guide-tag">地图</span></div><div class="guide-body"><h3>互动地图</h3><p>定位神庙所在的区域。</p></div></a>
+      <a class="guide-card" href="equipment.html"><div class="guide-thumb thumb-c"><span class="guide-tag">装备</span></div><div class="guide-body"><h3>装备与融合</h3><p>强化你的探险。</p></div></a>
+    </div>
+  </div>
+  <a class="back" href="index.html">← 返回首页</a>
+
+  <div id="video-root" data-page="shrines" class="feature-block"></div>
+  <div id="comments-root" data-page="shrines" class="feature-block"></div>
+</article>
+<div id="site-footer"></div>
+<script>
+var REGIONS = [
+  { name:'大空岛 Great Sky Island（天空）', shrines:['Ukouh Shrine','In-isa Shrine','Gutanbac Shrine','Nachoyah Shrine'] },
+  { name:'海布拉 / 塔邦挞 天空', shrines:['Ganos Shrine','Ga-ahisas Shrine','Ijo-o Shrine','Kahatanaum Shrine','Mayaumekis Shrine','Tenbez Shrine','Taninoud Shrine'] },
+  { name:'格鲁德 天空', shrines:['Mayasiar Shrine','Rakashog Shrine','Siyamotsus Shrine'] },
+  { name:'拉聂尔 天空', shrines:['Jirutagumac Shrine','Igoshon Shrine','Mayanas Shrine','Sihajog Shrine'] },
+  { name:'内睦达 天空', shrines:['Kumamayn Shrine','Josiu Shrine','Yansamin Shrine','Ukoojisi Shrine'] },
+  { name:'中央 / 费罗尼 天空', shrines:['Jinodok Shrine','Taunhiy Shrine','Simosiwak Shrine','Mayam Shrine','Joku-usin Shrine','Joku-u Shrine'] },
+  { name:'阿卡莱 / 艾尔丁 天空', shrines:['Natak Shrine','Gikaku Shrine','Mogisari Shrine','Kadaunar Shrine'] },
+
+  { name:'中央海拉鲁 Central Hyrule（地面）', shrines:['Ishodag Shrine','Jiosin Shrine','Jojon Shrine','Kamizun Shrine','Kyokugon Shrine','Kyononis Shrine','Mayachin Shrine','Ren-iz Shrine','Riogok Shrine','Sepapa Shrine','Serutabomac Shrine','Sinakawak Shrine','Susuyai Shrine','Tadarok Shrine','Tajikats Shrine','Teniten Shrine','Tsutsu-um Shrine','Yamiyo Shrine','Makurukis Shrine','Runakit Shrine','Taki-ihaban Shrine','Tenmaten Shrine','Usazum Shrine','Sonapan Shrine','En-oma Shrine'] },
+  { name:'大胡列良森林 Great Hyrule Forest', shrines:['Kiuyoyou Shrine','Kikakin Shrine','Musanokir Shrine','Ninjis Shrine','Pupunke Shrine','Sakunbomar Shrine','Ekochiu Shrine'] },
+  { name:'海布拉 Hebra', shrines:['Eutoum Shrine','Mayaotaki Shrine','Orochium Shrine','Oshozan-u Shrine','Otak Shrine','Rutafu-um Shrine','Sahirow Shrine','Sisuran Shrine','Tauyosipun Shrine','Wao-os Shrine'] },
+  { name:'塔邦挞 Tabantha', shrines:['Gatakis Shrine','Ikatak Shrine','Iun-orok Shrine','Mayausiy Shrine','Nouda Shrine','Oromuwak Shrine','Turakawak Shrine','Gasas Shrine'] },
+  { name:'阿卡莱 Akkala', shrines:['Domizuin Shrine','Gatanisis Shrine','Gemimik Shrine','Igashuk Shrine','Jochi-ihiga Shrine','Jochi-iu Shrine','Kamatukis Shrine','Kimayat Shrine','Rasiwak Shrine','Rasitakiwak Shrine','Sinatanika Shrine'] },
+  { name:'艾尔丁 Eldin', shrines:['Isisim Shrine','Jiotak Shrine','Kisinona Shrine','Marakuguc Shrine','Mayak Shrine','Minetak Shrine','Momosik Shrine','Moshapin Shrine','Sibajitak Shrine','Sikukuu Shrine','Sitsum Shrine','Timawak Shrine','Mayachideg Shrine'] },
+  { name:'拉聂尔 Lanayru', shrines:['Apogek Shrine','Ihen-a Shrine','Jikais Shrine','Jogou Shrine','Joniu Shrine','Jonsau Shrine','Kurakat Shrine','Maoikes Shrine','Mogawak Shrine','Morok Shrine','O-ogim Shrine','Tukarok Shrine','Yomizuk Shrine','Zakusu Shrine'] },
+  { name:'内睦达 Necluda', shrines:['Anedamimik Shrine','Bamitok Shrine','Eshos Shrine','Jochisiu Shrine','Makasura Shrine','Marari-in Shrine','Mayahisik Shrine','Sifumim Shrine','Susub Shrine','Tokiy Shrine','Utojis Shrine','Zanmik Shrine','Joju-u-u Shrine'] },
+  { name:'费罗尼 Faron', shrines:['Ishokin Shrine','Utsushok Shrine','Jiukoum Shrine'] },
+  { name:'格鲁德 Gerudo', shrines:['Kudanisar Shrine','Soryotanog Shrine','Mayatat Shrine','Miryotanog Shrine','Suariwak Shrine','Otutsum Shrine','Mayamats Shrine','Rakakudaj Shrine','Irasak Shrine','Karahatag Shrine','Chichim Shrine','Siwakama Shrine','Motsusis Shrine','Kitawak Shrine','Turakamik Shrine','Rotsumamu Shrine'] }
+];
+
+var SHRINE_INFO = {
+  'Ukouh Shrine':    { type:'教学·拼合', coord:'(-0840, 1860, 0870)（教学岛示意坐标）', hint:'用「究极手」把断裂的木板拼成桥，再搭台阶登顶取得祝福之光。' },
+  'In-isa Shrine':   { type:'教学·通天术', coord:'(-0910, 1670, 0990)（教学岛示意坐标）', hint:'站到平台下方，用「通天术」直达顶部出口。' },
+  'Gutanbac Shrine': { type:'教学·余料建造', coord:'(-0720, 1550, 1090)（教学岛示意坐标）', hint:'给木棍接上石板做成槌子，砸开挡路的机关方块。' },
+  'Nachoyah Shrine': { type:'教学·倒转乾坤', coord:'(-0580, 1380, 1200)（教学岛示意坐标）', hint:'用「倒转乾坤」让滚落的球倒流回到机关触发通路（终章前试炼）。' },
+  'Tsutsu-um Shrine':{ type:'劳鲁的祝福', coord:'待补', hint:'入口即终点，直接取得祝福之光、无需解谜（典型 Blessing 型神庙）。' }
+};
+function infoOf(name){ return SHRINE_INFO[name] || {}; }
+
+var ALL = [];
+REGIONS.forEach(function(r){ r.shrines.forEach(function(n){ ALL.push(n); }); });
+var TOTAL = ALL.length; // 152
+var STORE_KEY = 'totk_shrines_progress';
+var doneSet = {};
+try { doneSet = JSON.parse(localStorage.getItem(STORE_KEY) || '{}') || {}; } catch(e){ doneSet = {}; }
+
+var listEl = document.getElementById('shrineList');
+var searchEl = document.getElementById('shrineSearch');
+var fillEl = document.getElementById('progressFill');
+var textEl = document.getElementById('progressText');
+
+function save(){ try { localStorage.setItem(STORE_KEY, JSON.stringify(doneSet)); } catch(e){} }
+function updateProgress(){
+  var n = 0; ALL.forEach(function(s){ if(doneSet[s]) n++; });
+  var pct = TOTAL ? Math.round(n / TOTAL * 100) : 0;
+  fillEl.style.width = pct + '%';
+  textEl.textContent = '已点亮 ' + n + ' / ' + TOTAL + ' 座神庙（' + pct + '%）';
+}
+
+function render(q){
+  q = (q||'').trim().toLowerCase();
+  var html = '';
+  REGIONS.forEach(function(r){
+    var items = r.shrines.filter(function(s){ return !q || (s + ' ' + r.name).toLowerCase().indexOf(q) !== -1; });
+    if(!items.length) return;
+    html += '<div class="shrine-region"><h3>' + r.name + ' <span class="cnt">(' + r.shrines.length + ')</span></h3>';
+    html += '<div class="shrine-grid">';
+    items.forEach(function(s){
+      var on = doneSet[s] ? ' on' : '';
+      var inf = infoOf(s);
+      var type = inf.type || '<span class="pending">待补</span>';
+      var coord = inf.coord || '<span class="pending">待补</span>';
+      var hint = inf.hint || '<span class="pending">解法提示待补，建议配合视频攻略</span>';
+      html += '<div class="shrine-item' + on + '">'
+            + '<input type="checkbox" data-name="' + s + '"' + (doneSet[s] ? ' checked' : '') + '>'
+            + '<span class="nm" data-toggle>' + s.replace(' Shrine','') + '</span>'
+            + '<button class="shrine-toggle" type="button" aria-label="展开解法">▸</button>'
+            + '<div class="shrine-detail">'
+            + '<span class="tag">类型</span> ' + type + '<br>'
+            + '<span class="tag">坐标</span> ' + coord + '<br>'
+            + '<span class="tag">解法</span> ' + hint
+            + '</div>'
+            + '</div>';
+    });
+    html += '</div></div>';
+  });
+  listEl.innerHTML = html || '<p class="shrine-stats">没有匹配的神庙。</p>';
+}
+
+listEl.addEventListener('change', function(e){
+  var cb = e.target;
+  if(cb && cb.dataset && cb.dataset.name){
+    if(cb.checked) doneSet[cb.dataset.name] = 1; else delete doneSet[cb.dataset.name];
+    save(); updateProgress();
+    var lab = cb.closest('.shrine-item'); if(lab) lab.classList.toggle('on', cb.checked);
+  }
+});
+listEl.addEventListener('click', function(e){
+  var t = e.target;
+  if(t && (t.hasAttribute('data-toggle') || t.classList.contains('shrine-toggle'))){
+    var lab = t.closest('.shrine-item');
+    if(lab){ e.preventDefault(); lab.classList.toggle('expanded'); }
+  }
+});
+searchEl.addEventListener('input', function(){ render(searchEl.value); });
+document.getElementById('resetProgress').addEventListener('click', function(){
+  if(confirm('确定清空神庙收集进度？')){ doneSet = {}; save(); updateProgress(); render(searchEl.value); }
+});
+
+render('');
+updateProgress();
+</script>
+<script src="common.js"></script>
+</body>
+</html>

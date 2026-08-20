@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>互动地图 | 王国之泪 · 攻略站</title>
+<meta name="description" content="王国之泪互动地图：地面 / 天空 / 地下三层切换，标记关键地点与探索提示，可点击查看说明。">
+<link rel="stylesheet" href="styles.css">
+<meta name="keywords" content="王国之泪地图,互动地图,地面,天空,地下,地标,探索">
+<meta property="og:type" content="article">
+<meta property="og:title" content="互动地图 | 王国之泪 · 攻略站">
+<meta property="og:description" content="三层海拉鲁，可切换图层与点击标记。">
+</head>
+<body>
+<div id="site-header"></div>
+<article class="article">
+  <p class="crumb"><a href="index.html">首页</a> / 互动地图</p>
+  <h1>互动地图：三层海拉鲁</h1>
+  <div class="article-meta"><span>探索向</span><span>可切换图层</span><span>点击标记</span></div>
+  <p>海拉鲁由<b>地面、天空、地下</b>三层构成。切换下方标签查看不同图层，点击圆点查看地点说明。图例：<span class="lg lg-g"></span>地面城镇/区域　<span class="lg lg-s"></span>天空群岛　<span class="lg lg-d"></span>地下光明花。</p>
+
+  <div class="map-tabs" id="mapTabs">
+    <button class="map-tab active" data-layer="ground">地面</button>
+    <button class="map-tab" data-layer="sky">天空</button>
+    <button class="map-tab" data-layer="depths">地下</button>
+  </div>
+
+  <div class="map-wrap">
+    <div class="map-stage" id="mapStage">
+      <svg id="mapSvg" viewBox="0 0 800 520" role="img" aria-label="海拉鲁地图示意">
+        <defs>
+          <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#bfe3ef"/><stop offset="1" stop-color="#9fd0e3"/>
+          </linearGradient>
+        </defs>
+        <rect x="0" y="0" width="800" height="520" fill="url(#sea)"/>
+        <!-- 海拉鲁大陆（示意性轮廓） -->
+        <path d="M150 250 C140 180 210 130 300 128 C350 110 380 95 430 100 C470 78 540 80 590 110 C660 130 705 185 700 250 C712 300 690 350 640 380 C600 405 560 398 520 410 C470 430 430 450 360 442 C300 436 250 430 210 400 C160 372 150 320 150 250 Z"
+              fill="rgba(255,255,255,.62)" stroke="#7a5230" stroke-width="2.5"/>
+        <!-- 内陆湖（示意） -->
+        <path d="M360 300 C350 280 380 270 400 282 C420 270 445 285 435 305 C448 325 415 340 395 328 C372 342 348 322 360 300 Z" fill="#bfe3ef" stroke="#7a5230" stroke-width="1.2" opacity=".8"/>
+        <g id="g-ground"></g>
+        <g id="g-sky"></g>
+        <g id="g-depths"></g>
+      </svg>
+    </div>
+    <div class="map-info" id="mapInfo">
+      <h3>选择一个标记</h3>
+      <p>点击地图上任意圆点，查看该地点的简介。当前图层：地面。</p>
+    </div>
+  </div>
+
+  <div class="callout"><b>说明：</b>本图为<b>示意性简化图</b>，用于演示"三层切换 + 标记交互 + 坐标系网格"的完整结构，地形与坐标非游戏真实底图（网格为示意坐标系）。若要换成真实地图，请提供一张<b>授权可用</b>的海拉鲁底图（PNG/SVG），我可把它替换为图层背景并保留所有交互与标记逻辑；标记点的坐标字段也将一并替换为真实数值。</div>
+
+  <div class="related">
+    <h3>相关推荐</h3>
+    <div class="grid guide-grid">
+      <a class="guide-card" href="shrines.html"><div class="guide-thumb thumb-a"><span class="guide-tag">神庙</span></div><div class="guide-body"><h3>152 神庙清单</h3><p>按区域定位。</p></div></a>
+      <a class="guide-card" href="koroks.html"><div class="guide-thumb thumb-b"><span class="guide-tag">呀哈哈</span></div><div class="guide-body"><h3>克洛格种子</h3><p>900 个收集。</p></div></a>
+      <a class="guide-card" href="beginner.html"><div class="guide-thumb thumb-c"><span class="guide-tag">新手</span></div><div class="guide-body"><h3>新手指南</h3><p>探索基础。</p></div></a>
+    </div>
+  </div>
+  <a class="back" href="index.html">← 返回首页</a>
+
+  <div id="video-root" data-page="map" class="feature-block"></div>
+  <div id="comments-root" data-page="map" class="feature-block"></div>
+</article>
+<div id="site-footer"></div>
+<script>
+var MARKERS = [
+  {layer:'ground', x:400, y:265, short:'监视堡垒', name:'监视堡垒 Lookout Landing', desc:'主线起点，见 Purah，拿滑翔帆与各地指引，也是首个女神像所在地。'},
+  {layer:'ground', x:300, y:218, short:'海拉鲁城堡', name:'海拉鲁城堡', desc:'魔王休眠之地，终章决战舞台；外围有强敌与宝箱。'},
+  {layer:'ground', x:560, y:355, short:'卓拉领地', name:'卓拉领地 Zora’s Domain', desc:'水之异变区域，神殿 BOSS 为 Mucktorok。'},
+  {layer:'ground', x:210, y:430, short:'格鲁德', name:'格鲁德沙漠 Gerudo', desc:'沙之异变区域，炎热且多杂兵，BOSS 为 Queen Gibdo。'},
+  {layer:'ground', x:175, y:150, short:'海布拉', name:'海布拉 Hebra', desc:'西北严寒地区，需抗寒手段；利特村所在。'},
+  {layer:'ground', x:300, y:95,  short:'利特村', name:'利特村 Rito Village', desc:'风之异变区域，神殿 BOSS 为冰龙 Colgera。'},
+  {layer:'ground', x:625, y:205, short:'鼓隆', name:'鼓隆火山 Goron', desc:'火之异变区域，神殿 BOSS 为 Marbled Gohma。'},
+  {layer:'ground', x:705, y:300, short:'阿卡莱', name:'阿卡莱 Akkala', desc:'东北区域，含破败神庙、研究所与染料资源。'},
+  {layer:'ground', x:455, y:320, short:'卡卡利科', name:'卡卡利科村 Kakariko', desc:'人马族村落，有女神像与大量支线。'},
+  {layer:'ground', x:430, y:380, short:'哈特诺', name:'哈特诺村 Hateno', desc:'研究所有相机与能力升级，剧情关键村。'},
+  {layer:'sky', x:400, y:75,  short:'大空岛', name:'大空岛 Great Sky Island', coord:'(-0700, 1600, 1000)（教学岛示意坐标）', desc:'教学关，四大能力解锁地（Ukouh/In-isa/Gutanbac/Nachoyah）。'},
+  {layer:'sky', x:250, y:60,  short:'海布拉空', name:'海布拉天空群岛', desc:'通往风之神殿，含 Rising Island Chain。'},
+  {layer:'sky', x:600, y:65,  short:'格鲁德空', name:'格鲁德天空群岛', desc:'含 South Lomei Castle 迷宫与雷之神殿线索。'},
+  {layer:'sky', x:560, y:140, short:'拉聂尔空', name:'拉聂尔天空群岛', desc:'水之神殿 Wellspring Island 所在。'},
+  {layer:'sky', x:300, y:150, short:'中央空', name:'中央海拉鲁天空', desc:'含勇气岛试炼与多座天空神庙。'},
+  {layer:'depths', x:400, y:265, short:'地下·中央', name:'地下 · 中央光明花', desc:'黑暗中靠光明花照明，对应地面监视堡垒下方。'},
+  {layer:'depths', x:560, y:355, short:'地下·东南', name:'地下 · 东南', desc:'破败神庙与矿脉密集区，瘴气与资源并存。'},
+  {layer:'depths', x:210, y:430, short:'地下·西南', name:'地下 · 西南', desc:'格鲁德正下方，注意回血与光源。'}
+];
+var colors = { ground:'#3a7d44', sky:'#d4af37', depths:'#b39ddb' };
+var bg = { ground:'#e8f3dc', sky:'#cfe6f5', depths:'#221d36' };
+var groups = {
+  ground: document.getElementById('g-ground'),
+  sky: document.getElementById('g-sky'),
+  depths: document.getElementById('g-depths')
+};
+var info = document.getElementById('mapInfo');
+var stage = document.getElementById('mapStage');
+var ns = 'http://www.w3.org/2000/svg';
+
+function showInfo(m){
+  var c = m.coord ? '<p class="map-coord">坐标 ' + m.coord + '</p>' : '';
+  info.innerHTML = '<h3>' + m.name + '</h3>' + c + '<p>' + m.desc + '</p>';
+}
+function draw(layer){
+  Object.keys(groups).forEach(function(k){ groups[k].innerHTML = ''; });
+  if(layer === 'ground'){
+    var grid = document.createElementNS(ns, 'g');
+    grid.setAttribute('class', 'map-grid');
+    for(var gx = 0; gx <= 800; gx += 50){ var v = document.createElementNS(ns,'line'); v.setAttribute('x1',gx); v.setAttribute('y1',0); v.setAttribute('x2',gx); v.setAttribute('y2',520); grid.appendChild(v); }
+    for(var gy = 0; gy <= 520; gy += 50){ var h = document.createElementNS(ns,'line'); h.setAttribute('x1',0); h.setAttribute('y1',gy); h.setAttribute('x2',800); h.setAttribute('y2',gy); grid.appendChild(h); }
+    groups[layer].appendChild(grid);
+  }
+  MARKERS.filter(function(m){ return m.layer === layer; }).forEach(function(m){
+    if(layer === 'ground'){
+      var t = document.createElementNS(ns,'text');
+      t.setAttribute('x', m.x); t.setAttribute('y', m.y - 14);
+      t.setAttribute('text-anchor','middle'); t.setAttribute('fill','#5b4326');
+      t.setAttribute('font-size','12'); t.setAttribute('font-weight','700'); t.textContent = m.short;
+      groups[layer].appendChild(t);
+    }
+    var g = document.createElementNS(ns, 'g');
+    g.setAttribute('class', 'map-marker');
+    var c = document.createElementNS(ns, 'circle');
+    c.setAttribute('cx', m.x); c.setAttribute('cy', m.y); c.setAttribute('r', 7);
+    c.setAttribute('fill', colors[layer]); c.setAttribute('stroke', '#fff'); c.setAttribute('stroke-width', '2');
+    g.appendChild(c);
+    g.addEventListener('click', function(){ showInfo(m); });
+    groups[layer].appendChild(g);
+  });
+}
+function setLayer(layer){
+  draw(layer);
+  stage.style.background = bg[layer];
+  document.querySelectorAll('.map-tab').forEach(function(b){
+    b.classList.toggle('active', b.dataset.layer === layer);
+  });
+  var label = layer === 'ground' ? '地面' : layer === 'sky' ? '天空' : '地下';
+  info.innerHTML = '<h3>选择一个标记</h3><p>点击地图上任意圆点，查看该地点的简介。当前图层：' + label + '。</p>';
+}
+document.querySelectorAll('.map-tab').forEach(function(b){
+  b.addEventListener('click', function(){ setLayer(b.dataset.layer); });
+});
+setLayer('ground');
+</script>
+<script src="common.js"></script>
+</body>
+</html>

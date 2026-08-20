@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 部署前请将 zelda-guide.example.com 替换为你自己的域名 -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://zelda-guide.example.com/</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zelda-guide.example.com/"/>
+    <changefreq>weekly</changefreq><priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://zelda-guide.example.com/"/>
+    <changefreq>weekly</changefreq><priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/beginner.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/beginner.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/beginner.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/en/beginner.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/beginner.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/beginner.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/main-story.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/main-story.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/main-story.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/en/main-story.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/main-story.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/main-story.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/shrines.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/shrines.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/shrines.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/en/shrines.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/shrines.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/shrines.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/koroks.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/koroks.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/koroks.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/en/koroks.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/koroks.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/koroks.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/equipment.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/equipment.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/equipment.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/en/equipment.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/equipment.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/equipment.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/boss.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/boss.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/boss.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/en/boss.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/boss.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/boss.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/cooking.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/cooking.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/cooking.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/en/cooking.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/cooking.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/cooking.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/map.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/map.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/map.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/en/map.html</loc>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/map.html"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/map.html"/>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://zelda-guide.example.com/detail.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+</urlset>

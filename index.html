@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>王国之泪 · 攻略站 | 塞尔达传说全流程攻略</title>
+<meta name="description" content="塞尔达传说：王国之泪非官方粉丝攻略站 —— 主线流程、152 座神庙、900 个克洛格种子、装备融合、三层地图、BOSS 打法与新手指南。">
+<link rel="stylesheet" href="styles.css">
+  <link rel="alternate" hreflang="zh" href="https://zelda-guide.example.com/index.html">
+  <link rel="alternate" hreflang="en" href="https://zelda-guide.example.com/en/index.html">
+  <meta name="keywords" content="王国之泪攻略,塞尔达传说王国之泪,神庙解谜,克洛格种子,装备融合,主线流程,互动地图,BOSS打法,料理配方,新手指南">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="王国之泪 · 攻略站">
+  <meta property="og:description" content="塞尔达传说：王国之泪非官方全流程攻略 —— 主线、152 神庙、900 呀哈哈、装备融合、三层地图、BOSS 与新手指南。">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"王国之泪 · 攻略站",
+    "url":"https://zelda-guide.example.com/",
+    "description":"塞尔达传说：王国之泪非官方全流程攻略站。"
+  }
+  </script>
+</head>
+<body id="top">
+
+<!-- ===== 顶部导航 ===== -->
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top" aria-label="返回首页">
+      <svg class="brand-mark" viewBox="0 0 32 32" width="28" height="28" aria-hidden="true">
+        <path d="M16 3 L9.5 15 L22.5 15 Z" fill="currentColor"/>
+        <path d="M2 28 L9.5 15 L16 28 Z" fill="currentColor"/>
+        <path d="M16 28 L22.5 15 L30 28 Z" fill="currentColor"/>
+      </svg>
+      <span>王国之泪 · 攻略站</span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#categories">攻略库</a>
+      <a href="#featured">精选</a>
+      <a href="#beginner">新手</a>
+      <a href="#footer">关于</a>
+      <a class="lang-switch" href="en/index.html">EN</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="打开菜单" aria-expanded="false">
+      <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- ===== Hero ===== -->
+<section class="hero">
+  <svg class="hero-hills" viewBox="0 0 1440 220" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 220 L0 140 Q180 70 360 120 T720 100 T1080 130 T1440 110 L1440 220 Z" fill="#cfe6c2"/>
+    <path d="M0 220 L0 170 Q240 130 480 160 T960 150 T1440 165 L1440 220 Z" fill="#a9d29a"/>
+  </svg>
+  <img class="hero-figure" src="hero.svg" alt="Hooded champion in rare late-game armor holding a glowing sword" aria-hidden="true">
+  <div class="hero-content">
+    <p class="hero-kicker">THE LEGEND OF ZELDA · TEARS OF THE KINGDOM</p>
+    <h1>塞尔达传说<br>王国之泪</h1>
+    <p class="hero-sub">开放世界全流程攻略 · 神庙 · 呀哈哈 · 装备 · 地图</p>
+
+    <form class="search" id="searchForm" role="search" onsubmit="return false">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="M21 21l-4.3-4.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      <input id="search" type="search" placeholder="搜索攻略、神庙、呀哈哈、BOSS…" autocomplete="off" aria-label="搜索攻略">
+    </form>
+
+    <div class="hero-stats">
+      <div class="stat"><b>152</b><span>座神庙</span></div>
+      <div class="stat"><b>900</b><span>个呀哈哈</span></div>
+      <div class="stat"><b>3</b><span>层地图</span></div>
+      <div class="stat"><b>4</b><span>大能力</span></div>
+    </div>
+    <p class="hero-progress" id="heroProgress"></p>
+  </div>
+</section>
+
+<main>
+  <!-- ===== 攻略分类 ===== -->
+  <section class="section" id="categories">
+    <div class="section-head">
+      <h2>攻略分类</h2>
+      <p>沿着海拉鲁的脉络，找到你需要的那一份指引。</p>
+    </div>
+
+    <div class="grid" id="catGrid">
+      <a class="card" href="main-story.html" data-keywords="主线 流程 剧情 四神兽 魔王城 通关 任务">
+        <span class="card-ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4h9l5 5v12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 9h5M9 13h7M9 17h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </span>
+        <h3>主线流程</h3>
+        <p>四区域神殿 + 魔王城完整推进路线与剧情节点。</p>
+        <span class="badge">5 大章节</span>
+      </a>
+
+      <a class="card" href="shrines.html" data-keywords="神庙 解谜 120 攻略 视频 图文 智慧 勇气 力量">
+        <span class="card-ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 L20 19 H4 Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 9 v6 M9 12 h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <h3>神庙解谜</h3>
+        <p>152 座神庙图文 / 视频解法，按区域快速定位，进度可勾选保存。</p>
+        <span class="badge">152 座</span>
+      </a>
+
+      <a class="card" href="koroks.html" data-keywords="呀哈哈 克洛格 种子 900 收集 隐藏 位置">
+        <span class="card-ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21C7 21 4 17 4 12c4 0 8 3 8 9Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 21c5 0 8-4 8-9-4 0-8 3-8 9Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M12 12V4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        </span>
+        <h3>克洛格种子</h3>
+        <p>900 个呀哈哈位置全收集，附地图标记与提示。</p>
+        <span class="badge">900 个</span>
+      </a>
+
+      <a class="card" href="equipment.html" data-keywords="装备 武器 融合 余料 防具 套装 升级 材料">
+        <span class="card-ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 3l-3 3 4 4 3-3a3 3 0 0 0-4-4Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M11 8 4 15l5 5 7-7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 13l-3 3" stroke="currentColor" stroke-width="1.6"/></svg>
+        </span>
+        <h3>装备与融合</h3>
+        <p>武器余料建造、防具套装效果与升级材料一览。</p>
+        <span class="badge">实用向</span>
+      </a>
+
+      <a class="card" href="map.html" data-keywords="地图 地面 天空 地下 地标 位置 互动 探索">
+        <span class="card-ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.5" fill="currentColor"/></svg>
+        </span>
+        <h3>互动地图</h3>
+        <p>地面 / 天空 / 地下三层地标，可切换图层与标记。</p>
+        <span class="badge">三层</span>
+      </a>
+
+      <a class="card" href="boss.html" data-keywords="boss 敌人 魔王 打法 弱点 战术 战斗">
+        <span class="card-ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="1.4" fill="currentColor"/></svg>
+        </span>
+        <h3>敌人与 BOSS</h3>
+        <p>各类敌人弱点与 BOSS 阶段打法、推荐配装。</p>
+        <span class="badge">实战向</span>
+      </a>
+
+      <a class="card" href="cooking.html" data-keywords="料理 配方 回血 增益 buff 烹饪 食材 锅">
+        <span class="card-ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 11h14v3a6 6 0 0 1-6 6h-2a6 6 0 0 1-6-6Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9 11V7a2 2 0 0 1 4 0M14 11V7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M10 4c0-1 1-1 1-2M13 4c0-1 1-1 1-2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.7"/></svg>
+        </span>
+        <h3>料理配方</h3>
+        <p>回血、耐寒耐热、攻击增益等实用料理配方。</p>
+        <span class="badge">收藏向</span>
+      </a>
+
+      <a class="card" href="#beginner" data-keywords="新手 入门 指南 开局 能力 操作 技巧 教程">
+        <span class="card-ico">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h5v16H6a2 2 0 0 0-2 2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M20 5a2 2 0 0 0-2-2h-5v16h5a2 2 0 0 1 2 2Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        </span>
+        <h3>新手指南</h3>
+        <p>四大能力、操作要点与开局 30 分钟该做的事。</p>
+        <span class="badge">必读</span>
+      </a>
+    </div>
+    <p class="empty-hint" id="catEmpty">没有匹配的攻略分类，换个关键词试试。</p>
+  </section>
+
+  <!-- ===== 精选攻略 ===== -->
+  <section class="section section-alt" id="featured">
+    <div class="section-head">
+      <h2>精选攻略</h2>
+      <p>编辑精选，覆盖从开局到毕业的关键节点。</p>
+    </div>
+
+    <div class="grid guide-grid" id="guideGrid">
+      <a class="guide-card" href="beginner.html" data-keywords="新手 开局 30分钟 必看 入门 教程 流程">
+        <div class="guide-thumb thumb-a"><span class="guide-tag">新手必看</span></div>
+        <div class="guide-body">
+          <h3>开局 30 分钟该做什么</h3>
+          <p>落地后的能力获取顺序、第一把趁手武器与生存底线。</p>
+          <div class="guide-meta"><span>阅读 6 分钟</span><span>·</span><span>更新于 MVP</span></div>
+        </div>
+      </a>
+
+      <a class="guide-card" href="shrines.html" data-keywords="神庙 速通 路线 规划 120 效率 收集">
+        <div class="guide-thumb thumb-b"><span class="guide-tag">效率向</span></div>
+        <div class="guide-body">
+          <h3>152 神庙速通路线规划</h3>
+          <p>按区域分块的最优推进顺序，少走回头路。</p>
+          <div class="guide-meta"><span>阅读 9 分钟</span><span>·</span><span>附地图</span></div>
+        </div>
+      </a>
+
+      <a class="guide-card" href="equipment.html" data-keywords="装备 融合 余料 组合 最强 武器 diy">
+        <div class="guide-thumb thumb-c"><span class="guide-tag">装备向</span></div>
+        <div class="guide-body">
+          <h3>十大最强余料建造组合</h3>
+          <p>武器融合的平民与土豪两套方案，伤害拉满。</p>
+          <div class="guide-meta"><span>阅读 7 分钟</span><span>·</span><span>实战验证</span></div>
+        </div>
+      </a>
+
+      <a class="guide-card" href="map.html" data-keywords="地下 世界 探索 生存 黑暗 指南 深度">
+        <div class="guide-thumb thumb-d"><span class="guide-tag">探索向</span></div>
+        <div class="guide-body">
+          <h3>地下世界探索生存指南</h3>
+          <p>黑暗中的光源、扭扭蘑菇与风险收益平衡点。</p>
+          <div class="guide-meta"><span>阅读 8 分钟</span><span>·</span><span>进阶</span></div>
+        </div>
+      </a>
+    </div>
+    <p class="empty-hint" id="guideEmpty">没有匹配的精选攻略，换个关键词试试。</p>
+  </section>
+
+  <!-- ===== 新手快速上手 ===== -->
+  <section class="section" id="beginner">
+    <div class="section-head">
+      <h2>新手快速上手</h2>
+      <p>王国之泪的核心，是林克获得的四大能力。</p>
+    </div>
+
+    <div class="abilities">
+      <div class="ability" data-keywords="能力 究极手 组合 拼接 建造">
+        <h4>究极手</h4>
+        <p>拼接物体、组装载具与机关，是"造东西"的基础。</p>
+      </div>
+      <div class="ability" data-keywords="能力 余料建造 融合 武器 组合">
+        <h4>余料建造</h4>
+        <p>把素材融合到武器 / 盾 / 箭上，DIY 你的专属装备。</p>
+      </div>
+      <div class="ability" data-keywords="能力 通天术 上墙 穿越 地形">
+        <h4>通天术</h4>
+        <p>向上穿越实体，瞬间抵达头顶，爬山越障神技。</p>
+      </div>
+      <div class="ability" data-keywords="能力 倒转乾坤 时光 回溯 物体">
+        <h4>倒转乾坤</h4>
+        <p>让物体沿原轨迹倒流，借力移动的平台与落石。</p>
+      </div>
+    </div>
+
+    <ul class="tips">
+      <li><b>先拿能力再开图：</b>空岛教学关走完，四大能力到手再下地面。</li>
+      <li><b>余料建造保武器：</b>武器会坏，融合素材能临时续命并加属性。</li>
+      <li><b>呀哈哈优先扩背包：</b>武器 / 盾 / 弓各 1 个种子先安排上。</li>
+      <li><b>善用通天术：</b>看到可站立顶面，直接穿上去省去爬山。</li>
+    </ul>
+  </section>
+</main>
+
+<!-- ===== 页脚 ===== -->
+<footer class="footer" id="footer">
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <svg class="brand-mark" viewBox="0 0 32 32" width="24" height="24" aria-hidden="true">
+        <path d="M16 3 L9.5 15 L22.5 15 Z" fill="currentColor"/>
+        <path d="M2 28 L9.5 15 L16 28 Z" fill="currentColor"/>
+        <path d="M16 28 L22.5 15 L30 28 Z" fill="currentColor"/>
+      </svg>
+      <span>王国之泪 · 攻略站</span>
+    </div>
+    <p class="footer-note">本站为《塞尔达传说：王国之泪》粉丝向非官方攻略站，与任天堂官方无关。内容持续完善中。</p>
+    <p class="footer-copy">© <span id="year">2026</span> 海拉鲁攻略志 · 用爱与肝共建</p>
+    <p class="footer-lang"><a href="en/index.html">EN</a></p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
